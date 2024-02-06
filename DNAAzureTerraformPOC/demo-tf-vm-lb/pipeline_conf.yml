@@ -1,0 +1,33 @@
+trigger:
+  branches:
+    exclude:
+      - '*'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+    addToPath: true
+
+- script: |
+    terraform init -input=false
+    terraform plan -out=tfplan -input=false
+  displayName: 'Terraform Init and Plan'
+  env:
+    ARM_CLIENT_ID: 'bb2b8def-bad5-48dc-b27f-48c77b4a4510'
+    ARM_CLIENT_SECRET: 'cIQ8Q~55pOSiU3EhzQNcd1tMT50sTt1VHc1.Aca4'
+    ARM_SUBSCRIPTION_ID: $(subscriptionId)
+    ARM_TENANT_ID: 'd420b80d-bc1a-429d-b6c6-587896c20153'
+
+- script: |
+    terraform apply -input=false tfplan
+  displayName: 'Terraform Apply'
+  env:
+    ARM_CLIENT_ID: 'bb2b8def-bad5-48dc-b27f-48c77b4a4510'
+    ARM_CLIENT_SECRET: 'cIQ8Q~55pOSiU3EhzQNcd1tMT50sTt1VHc1.Aca4'
+    ARM_SUBSCRIPTION_ID: $(subscriptionId)
+    ARM_TENANT_ID: 'd420b80d-bc1a-429d-b6c6-587896c20153'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))

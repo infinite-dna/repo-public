@@ -1,0 +1,36 @@
+ Dependencies:
+
+1. **Azure Account Access:**
+   - To provision infrastructure and services, ensure the user has the necessary privileges in the Azure account.
+   - Recommendation: Coordinate with the Cloud Administrator, communicate and discuss timeframes for timely fulfillment of requests in advance , will need contact.
+
+2. **Access to DevOps Tools:**
+   - Besides Single Sign-On (SSO), users need to request access IDs for DevOps tools, including Nexus, GitLab, and Harness.
+   - Recommendation: Plan ahead and engage with Frank to discuss and coordinate access requests.
+
+3. **Nexus Repository Access:**
+   - Users require access to the Nexus repository.
+   -- Create nexus repository ( Coordinate with Secure software supply chain team in advance request repos )
+
+4. **GitLab Runner provision Access:**
+   - Request GitLab Runner ++ ssh access with the appropriate permissions.
+   -- should have ssh access
+
+5. **Jenkins Agent (if chosen as the CI/CD tool):**
+   - If Jenkins is the chosen CI/CD tool, ensure proper access to Jenkins Agents.
+
+6. **Service Accounts for CI/CD:**
+   - Establish service accounts for CI/CD processes.
+
+7. **Harness User Access:**
+   - Provide user access for Harness, and establish service accounts as needed.
+
+8. **Cloud Firewall Ports:**
+   - Ensure .we have contact and turn aroaunds discussed
+
+   Note: It's advisable to discuss and plan these access requests well in advance to streamline the provisioning process and minimize delays. Engage with relevant administrators and stakeholders for effective coordination.
+9. ** Admin on Laptops **
+ --- request admin access if not get5 contact from helpdesk
+
+10 **Service Accounts for Ci/CD**
+  --- Get the contact if you can
